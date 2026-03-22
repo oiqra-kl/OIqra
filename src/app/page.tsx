@@ -19,6 +19,7 @@ import {
   Clock,
   Heart,
   Shield,
+  ShieldCheck,
   Award,
 } from "lucide-react";
 
@@ -212,34 +213,30 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ==================== CARA BERMULA (HOW IT WORKS) ==================== */}
-      <section className="py-14 md:py-28 bg-white" id="cara">
+      <section className="py-12 md:py-28 bg-white" id="cara">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
-            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Perjalanan Pelajar</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] md:text-sm mb-2 block">Perjalanan Pelajar</span>
+            <h2 className="text-2xl md:text-5xl font-display font-bold text-slate-900 mb-2">
               Mudah Sahaja Untuk <span className="text-gradient">Bermula</span>
             </h2>
-            <p className="text-slate-500 text-base sm:text-lg">Hanya 4 langkah mudah untuk anak anda mula menguasai bacaan Al-Quran.</p>
+            <p className="text-slate-500 text-sm md:text-lg">Hanya 4 langkah mudah untuk mula belajar.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            {/* Desktop connecting line */}
-            <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-sky-200 via-sky-300 to-sky-200 z-0" />
-
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[
-              { num: 1, icon: MessageCircle, title: "Hubungi Kami", desc: "Tekan butang WhatsApp dan beritahu kami butiran anak anda.", color: "bg-sky-100 text-sky-600" },
-              { num: 2, icon: BookOpen, title: "Penilaian Percuma", desc: "Guru kami akan menilai tahap bacaan anak anda secara ringkas dan percuma.", color: "bg-emerald-100 text-emerald-600" },
-              { num: 3, icon: Clock, title: "Pilih Jadual", desc: "Pilih slot waktu online yang paling sesuai untuk jadual keluarga anda.", color: "bg-amber-100 text-amber-600" },
-              { num: 4, icon: GraduationCap, title: "Mula Belajar!", desc: "Anak anda sedia untuk sesi talaqqi digital bersama guru hafiz berpengalaman.", color: "bg-violet-100 text-violet-600" },
-            ].map((step, idx) => (
-              <motion.div key={step.num} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.12, duration: 0.5 }} className="relative z-10 text-center">
-                <div className={`w-24 h-24 rounded-3xl ${step.color} flex items-center justify-center mb-6 mx-auto shadow-lg`}>
-                  <step.icon size={36} />
+              { step: "01", title: "Hubungi", desc: "WhatsApp & beri butiran anak.", icon: <MessageCircle className="w-5 h-5 md:w-8 md:h-8 text-sky-600" />, color: "bg-sky-50" },
+              { step: "02", title: "Penilaian", desc: "Guru nilai bacaan percuma.", icon: <BookOpen className="w-5 h-5 md:w-8 md:h-8 text-emerald-600" />, color: "bg-emerald-50" },
+              { step: "03", title: "Jadual", desc: "Pilih waktu sesi sesuai.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-amber-600" />, color: "bg-amber-50" },
+              { step: "04", title: "Mula!", desc: "Terus mula mengaji 1-ke-1.", icon: <Star className="w-5 h-5 md:w-8 md:h-8 text-purple-600" />, color: "bg-purple-50" },
+            ].map((s, idx) => (
+              <motion.div key={s.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="relative group p-4 sm:p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
+                <div className={`w-12 h-12 md:w-20 md:h-20 ${s.color} rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                  {s.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed px-2">{step.desc}</p>
+                <h3 className="text-sm md:text-xl font-display font-bold text-slate-900 mb-1 md:mb-3">{s.title}</h3>
+                <p className="text-[11px] md:text-sm text-slate-500 leading-snug">{s.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -318,24 +315,22 @@ export default function Home() {
             </motion.div>
 
             {/* Right: Features */}
-            <div className="space-y-6">
-              {[
-                { icon: BookOpen, title: "Kurikulum Tersusun", desc: "Silibus berstruktur dari Iqra 1 hingga Al-Quran lengkap dengan laporan kemajuan bulanan. Anda tahu tepat di mana anak anda berada.", gradient: "from-sky-500 to-sky-400" },
-                { icon: Users, title: "Sesi 1-to-1 Talaqqi", desc: "Tumpuan penuh tanpa gangguan kelas besar. Memastikan sebutan makhraj dan tajwid yang sempurna setiap sesi bersemuka digital.", gradient: "from-emerald-500 to-emerald-400" },
-                { icon: Globe, title: "Tanpa Sempadan Kawasan", desc: "100% Online bermakna anda tidak perlu risau tentang jarak, kesesakan lalu lintas, atau lokasi kelas guru.", gradient: "from-amber-500 to-amber-400" },
-                { icon: Heart, title: "Sentuhan Kasih Sayang", desc: "Setiap guru kami bukan hanya mengajar — mereka membina hubungan dengan pelajar. Anak anda akan rindu untuk mengaji!", gradient: "from-rose-500 to-rose-400" },
-              ].map((feature, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="flex gap-5 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-sky-900/5 hover:-translate-y-1 transition-all duration-300 group">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform`}>
-                    <feature.icon size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-1">{feature.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{feature.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {[
+              { title: "Guru Hafiz", desc: "Hafiz bertauliah & bersanad.", icon: <GraduationCap className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+              { title: "1-ke-1", desc: "Tumpuan peribadi sepenuhnya.", icon: <ShieldCheck className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+              { title: "Masa Fleksibel", desc: "Ikut keselesaan jadual rumah.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+              { title: "100% Online", desc: "Belajar di mana-mana sahaja.", icon: <Globe className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+            ].map((item, idx) => (
+              <motion.div key={item.title} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="p-4 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-sky-50 flex items-center justify-center mb-3 md:mb-6 group-hover:bg-sky-600 transition-colors duration-300">
+                  <div className="group-hover:text-white transition-colors duration-300">{item.icon}</div>
+                </div>
+                <h3 className="text-sm md:text-xl font-display font-bold text-slate-900 mb-1 md:mb-3">{item.title}</h3>
+                <p className="text-[11px] md:text-base text-slate-500 leading-snug md:leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
           </div>
         </div>
       </section>
