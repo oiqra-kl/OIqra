@@ -253,7 +253,7 @@ export default function Home() {
             {/* Left: Image */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className="relative order-2 lg:order-1">
               <div className="absolute -inset-6 bg-gradient-to-br from-sky-200/40 to-amber-200/20 rounded-[2rem] blur-xl" />
-              <Image src="/assets/founders.png" alt="Pengasas OIqra — Ustaz Naufal dan Ustaz Amirul Amri" width={560} height={560} className="relative rounded-[1.5rem] shadow-2xl object-cover w-full" />
+              <Image src="/assets/founder_model_3.jpg" alt="Pengasas OIqra — Ustaz Naufal dan Ustaz Amirul Amri" width={560} height={560} className="relative rounded-[1.5rem] shadow-2xl object-cover w-full" />
               {/* Credential badge */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-xl rounded-2xl p-5 shadow-xl border border-sky-100">
                 <div className="flex items-center gap-4">
