@@ -59,6 +59,20 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    { name: "Puan Siti Aminah", role: "Ibu kepada Aiman, 9 tahun", text: "Dulu Aiman malas nak pergi mengaji di masjid. Sejak ambil kelas talaqqi online OIqra, dia sendiri yang buka laptop setiap malam. Ustaz sangat sabar dan pandai tarik perhatian budak-budak.", initial: "S" },
+    { name: "Encik Rahman", role: "Bapa kepada Nurin, 11 tahun", text: "Laporan kemajuan bulanan tu yang paling saya suka. Walaupun saya sibuk bekerja, saya tahu tepat huruf apa yang Nurin dah lepas dan tajwid apa yang dia sedang perbaiki.", initial: "R" },
+    { name: "Puan Farah", role: "Ibu kepada Danish, 8 tahun", text: "Satu kelegaan besar tak payah hantar dan ambil anak kelas maghrib. Ustaz mereka hafiz bersanad, bacaan kualiti terbaik. Danish habis Iqra 6 dalam 4 bulan sahaja!", initial: "F" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -77,7 +91,7 @@ export default function Home() {
   return (
     <main className="min-h-screen font-sans">
       {/* ==================== NAVIGATION ==================== */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "glass-nav-scrolled py-3" : "bg-transparent py-5"
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? "glass-nav-scrolled py-3" : "bg-transparent py-5"
         }`}>
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between">
           {/* Logo */}
@@ -307,7 +321,6 @@ export default function Home() {
               Kenapa Ibubapa Pilih <span className="text-gradient">OIqra?</span>
             </h2>
           </motion.div>
-
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Illustration */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn}>
@@ -315,22 +328,22 @@ export default function Home() {
             </motion.div>
 
             {/* Right: Features */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {[
-              { title: "Guru Hafiz", desc: "Hafiz bertauliah & bersanad.", icon: <GraduationCap className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-              { title: "1-ke-1", desc: "Tumpuan peribadi sepenuhnya.", icon: <ShieldCheck className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-              { title: "Masa Fleksibel", desc: "Ikut keselesaan jadual rumah.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-              { title: "100% Online", desc: "Belajar di mana-mana sahaja.", icon: <Globe className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-            ].map((item, idx) => (
-              <motion.div key={item.title} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="p-4 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-sky-50 flex items-center justify-center mb-3 md:mb-6 group-hover:bg-sky-600 transition-colors duration-300">
-                  <div className="group-hover:text-white transition-colors duration-300">{item.icon}</div>
-                </div>
-                <h3 className="text-sm md:text-xl font-display font-bold text-slate-900 mb-1 md:mb-3">{item.title}</h3>
-                <p className="text-[11px] md:text-base text-slate-500 leading-snug md:leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {[
+                { title: "Guru Hafiz", desc: "Hafiz bertauliah.", icon: <GraduationCap className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+                { title: "1-ke-1", desc: "Tumpuan peribadi.", icon: <ShieldCheck className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+                { title: "Masa Fleksibel", desc: "Ikut jadual anda.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+                { title: "100% Online", desc: "Belajar di mana sahaja.", icon: <Globe className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+              ].map((item, idx) => (
+                <motion.div key={item.title} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="p-4 sm:p-6 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-sky-50 flex items-center justify-center mb-3 md:mb-5 group-hover:bg-sky-600 transition-colors duration-300">
+                    <div className="group-hover:text-white transition-colors duration-300">{item.icon}</div>
+                  </div>
+                  <h3 className="text-sm md:text-lg font-display font-bold text-slate-900 mb-1">{item.title}</h3>
+                  <p className="text-[10px] md:text-sm text-slate-500 leading-snug">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -373,7 +386,7 @@ export default function Home() {
       </section>
 
       {/* ==================== TESTIMONIALS ==================== */}
-      <section className="py-14 md:py-28 bg-gradient-to-b from-sky-950 via-sky-900 to-sky-950 text-white" id="testimoni">
+      <section className="py-14 md:py-28 bg-gradient-to-b from-sky-950 via-sky-900 to-sky-950 text-white overflow-hidden" id="testimoni">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
             <span className="text-amber-400 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Maklum Balas Ibu Bapa</span>
@@ -382,28 +395,46 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { name: "Puan Siti Aminah", role: "Ibu kepada Aiman, 9 tahun", text: "Dulu Aiman malas nak pergi mengaji di masjid. Sejak ambil kelas talaqqi online OIqra, dia sendiri yang buka laptop setiap malam. Ustaz sangat sabar dan pandai tarik perhatian budak-budak.", initial: "S" },
-              { name: "Encik Rahman", role: "Bapa kepada Nurin, 11 tahun", text: "Laporan kemajuan bulanan tu yang paling saya suka. Walaupun saya sibuk bekerja, saya tahu tepat huruf apa yang Nurin dah lepas dan tajwid apa yang dia sedang perbaiki.", initial: "R" },
-              { name: "Puan Farah", role: "Ibu kepada Danish, 8 tahun", text: "Satu kelegaan besar tak payah hantar dan ambil anak kelas maghrib. Ustaz mereka hafiz bersanad, bacaan kualiti terbaik. Danish habis Iqra 6 dalam 4 bulan sahaja!", initial: "F" },
-            ].map((review, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.12 }} className="bg-white/[0.06] backdrop-blur-lg border border-white/10 rounded-3xl p-7 sm:p-8 hover:bg-white/[0.1] transition-colors">
-                <div className="flex text-amber-400 mb-5 gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-sky-100/90 italic mb-8 leading-relaxed text-sm sm:text-base">&ldquo;{review.text}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center font-display font-bold text-lg">
-                    {review.initial}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="overflow-hidden">
+              <motion.div
+                animate={{ x: `-${currentTestimonial * 100}%` }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="flex"
+              >
+                {testimonials.map((review, idx) => (
+                  <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
+                    <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="bg-white/[0.06] backdrop-blur-lg border border-white/10 rounded-3xl p-7 sm:p-12 h-full">
+                      <div className="flex text-amber-400 mb-6 gap-0.5 justify-center md:justify-start">
+                        {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+                      </div>
+                      <p className="text-sky-100/90 italic mb-10 leading-relaxed text-base sm:text-xl text-center md:text-left font-medium">&ldquo;{review.text}&rdquo;</p>
+                      <div className="flex items-center justify-center md:justify-start gap-4">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center font-display font-bold text-xl">
+                          {review.initial}
+                        </div>
+                        <div className="text-left">
+                          <h4 className="font-bold font-display text-base sm:text-lg">{review.name}</h4>
+                          <span className="text-xs sm:text-sm text-sky-300/70">{review.role}</span>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
-                  <div>
-                    <h4 className="font-bold font-display text-sm">{review.name}</h4>
-                    <span className="text-xs text-sky-300/70">{review.role}</span>
-                  </div>
-                </div>
+                ))}
               </motion.div>
-            ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-3 mt-8">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentTestimonial(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${currentTestimonial === idx ? "w-8 bg-sky-400" : "w-2 bg-white/20"}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
