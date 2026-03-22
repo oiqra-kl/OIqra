@@ -137,8 +137,8 @@ export default function Home() {
           <div className="absolute bottom-[-20%] left-[-15%] w-[50%] h-[60%] bg-amber-500/10 rounded-full blur-[120px]" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 pt-36 pb-20 lg:pt-44 lg:pb-24">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 pt-32 pb-16 lg:pt-44 lg:pb-24">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <motion.div initial="hidden" animate="visible" variants={stagger}>
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 backdrop-blur-md mb-8">
@@ -170,9 +170,9 @@ export default function Home() {
               {/* Stats */}
               <motion.div variants={fadeUp} className="mt-14 pt-8 border-t border-sky-700/40 grid grid-cols-3 gap-6 max-w-md">
                 {[
-                  { num: "30+", label: "Guru Hafiz" },
+                  { num: "30+", label: "Guru" },
                   { num: "100%", label: "Online" },
-                  { num: "7-17", label: "Tahun" },
+                  { num: "500+", label: "Pelajar" },
                 ].map((s) => (
                   <div key={s.label} className="text-center sm:text-left">
                     <p className="text-2xl sm:text-3xl font-display font-bold text-white">{s.num}</p>
@@ -214,11 +214,11 @@ export default function Home() {
       </section>
 
       {/* ==================== CARA BERMULA (HOW IT WORKS) ==================== */}
-      <section className="py-20 md:py-28 bg-white" id="cara">
+      <section className="py-14 md:py-28 bg-white" id="cara">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-sky-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Perjalanan Pelajar</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Perjalanan Pelajar</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
               Mudah Sahaja Untuk <span className="text-gradient">Bermula</span>
             </h2>
             <p className="text-slate-500 text-base sm:text-lg">Hanya 4 langkah mudah untuk anak anda mula menguasai bacaan Al-Quran.</p>
@@ -247,9 +247,9 @@ export default function Home() {
       </section>
 
       {/* ==================== ABOUT (TENTANG KAMI) ==================== */}
-      <section className="py-20 md:py-28 bg-sky-50/50" id="tentang">
+      <section className="py-14 md:py-28 bg-sky-50/50" id="tentang">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             {/* Left: Image */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className="relative order-2 lg:order-1">
               <div className="absolute -inset-6 bg-gradient-to-br from-sky-200/40 to-amber-200/20 rounded-[2rem] blur-xl" />
@@ -270,8 +270,8 @@ export default function Home() {
 
             {/* Right: Text */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="order-1 lg:order-2">
-              <motion.span variants={fadeUp} className="text-sky-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Direka Untuk Generasi Ini</motion.span>
-              <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+              <motion.span variants={fadeUp} className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Direka Untuk Generasi Ini</motion.span>
+              <motion.h2 variants={fadeUp} className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4 leading-tight">
                 Lahirkan Generasi <br className="hidden md:block" />Celik <span className="text-gradient">Al-Quran</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
@@ -302,11 +302,11 @@ export default function Home() {
       </section>
 
       {/* ==================== STRENGTHS (KELEBIHAN) ==================== */}
-      <section className="py-20 md:py-28 bg-white" id="kekuatan">
+      <section className="py-14 md:py-28 bg-white" id="kekuatan">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-sky-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Kelebihan Platform</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Kelebihan Platform</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
               Kenapa Ibubapa Pilih <span className="text-gradient">OIqra?</span>
             </h2>
           </motion.div>
@@ -341,11 +341,11 @@ export default function Home() {
       </section>
 
       {/* ==================== SCHEDULE (JADUAL) ==================== */}
-      <section className="py-20 md:py-28 bg-sky-50/50" id="jadual">
+      <section className="py-14 md:py-28 bg-sky-50/50" id="jadual">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <span className="text-sky-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Jadual Kelas</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Jadual Kelas</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
               Masa Yang <span className="text-gradient">Fleksibel</span>
             </h2>
             <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">Pilih sesi yang sesuai dengan jadual anak anda. Setiap sesi berlangsung selama 30–45 minit.</p>
@@ -378,11 +378,11 @@ export default function Home() {
       </section>
 
       {/* ==================== TESTIMONIALS ==================== */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-sky-950 via-sky-900 to-sky-950 text-white" id="testimoni">
+      <section className="py-14 md:py-28 bg-gradient-to-b from-sky-950 via-sky-900 to-sky-950 text-white" id="testimoni">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-amber-400 font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Maklum Balas Ibu Bapa</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <span className="text-amber-400 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Maklum Balas Ibu Bapa</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-3">
               Kisah Kejayaan <span className="text-sky-300">Pelajar</span>
             </h2>
           </motion.div>
@@ -414,11 +414,11 @@ export default function Home() {
       </section>
 
       {/* ==================== FAQ ==================== */}
-      <section className="py-20 md:py-28 bg-white" id="faq">
+      <section className="py-14 md:py-28 bg-white" id="faq">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <span className="text-sky-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Soalan Lazim</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Soalan Lazim</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
               Ada <span className="text-gradient">Pertanyaan?</span>
             </h2>
           </motion.div>
@@ -440,9 +440,9 @@ export default function Home() {
       </section>
 
       {/* ==================== FINAL CTA ==================== */}
-      <section className="py-16 md:py-24 bg-sky-50/50" id="hubungi">
+      <section className="py-12 md:py-24 bg-sky-50/50" id="hubungi">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-sky-600 via-sky-500 to-sky-700 text-center p-10 sm:p-16 md:p-20 shadow-2xl shadow-sky-800/30">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-sky-600 via-sky-500 to-sky-700 text-center p-8 sm:p-16 md:p-20 shadow-2xl shadow-sky-800/30">
             <div className="absolute top-[-50%] right-[-10%] w-[60%] h-[150%] bg-sky-400/30 rounded-full blur-[100px]" />
             <div className="absolute bottom-[-30%] left-[-10%] w-[40%] h-[100%] bg-amber-400/10 rounded-full blur-[80px]" />
 
