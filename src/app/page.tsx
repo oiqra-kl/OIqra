@@ -46,14 +46,14 @@ const stagger = {
 
 /* ---------- FAQ Data ---------- */
 const faqs = [
-  { q: "Berapa umur yang sesuai untuk mula belajar di OIqra?", a: "OIqra menerima pelajar berumur 7 hingga 17 tahun. Kami akan menilai tahap bacaan anak anda terlebih dahulu dan menyusun pelan pembelajaran yang sesuai dengan kemampuan mereka." },
-  { q: "Adakah guru OIqra berkelayakan?", a: "Setiap guru OIqra mempunyai Ijazah Sanad dan merupakan hafiz Al-Quran 30 juzuk yang berpengalaman dalam pengajaran kaedah talaqqi musyafahah secara digital." },
+  { q: "Berapa umur yang sesuai untuk mula belajar di O-Iqra'?", a: "O-Iqra' menerima pelajar berumur 7 hingga 17 tahun. Kami akan menilai tahap bacaan anak anda terlebih dahulu dan menyusun pelan pembelajaran yang sesuai dengan kemampuan mereka." },
+  { q: "Adakah guru O-Iqra' berkelayakan?", a: "Setiap guru O-Iqra' mempunyai kelayakan yang diiktiraf dalam pengajaran kaedah talaqqi musyafahah secara digital." },
   { q: "Bagaimana sesi pembelajaran dijalankan?", a: "Sesi dijalankan 100% ONLINE melalui Google Meet atau Zoom secara talaqqi (bersemuka digital) di mana guru membimbing pelajar seorang demi seorang dengan penuh perhatian." },
   { q: "Bolehkah saya pantau perkembangan anak saya?", a: "Sudah tentu! Kami menghantar laporan kemajuan bulanan kepada setiap ibu bapa melalui WhatsApp, termasuk tahap bacaan semasa, pencapaian, dan bidang yang perlu ditambah baik." },
-  { q: "Kawasan mana yang diliputi oleh OIqra?", a: "Oleh kerana OIqra beroperasi 100% secara dalam talian, kami menerima pelajar dari SELURUH Malaysia tanpa mengira lokasi geografi." },
+  { q: "Kawasan mana yang diliputi oleh O-Iqra'?", a: "Oleh kerana O-Iqra' beroperasi 100% secara dalam talian, kami menerima pelajar dari SELURUH Malaysia tanpa mengira lokasi geografi." },
 ];
 
-const waLink = "https://wa.me/60123456789?text=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendaftar%20anak%20saya%20dalam%20kelas%20online%20OIqra.";
+const waLink = "https://wa.me/60123456789?text=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendaftar%20anak%20saya%20dalam%20kelas%20online%20O-Iqra'.";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +62,7 @@ export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
-    { name: "Puan Siti Aminah", role: "Ibu kepada Aiman, 9 tahun", text: "Dulu Aiman malas nak pergi mengaji di masjid. Sejak ambil kelas talaqqi online OIqra, dia sendiri yang buka laptop setiap malam. Ustaz sangat sabar dan pandai tarik perhatian budak-budak.", initial: "S" },
+    { name: "Puan Siti Aminah", role: "Ibu kepada Aiman, 9 tahun", text: "Dulu Aiman malas nak pergi mengaji di masjid. Sejak ambil kelas talaqqi online O-Iqra', dia sendiri yang buka laptop setiap malam. Ustaz sangat sabar dan pandai tarik perhatian budak-budak.", initial: "S" },
     { name: "Encik Rahman", role: "Bapa kepada Nurin, 11 tahun", text: "Laporan kemajuan bulanan tu yang paling saya suka. Walaupun saya sibuk bekerja, saya tahu tepat huruf apa yang Nurin dah lepas dan tajwid apa yang dia sedang perbaiki.", initial: "R" },
     { name: "Puan Farah", role: "Ibu kepada Danish, 8 tahun", text: "Satu kelegaan besar tak payah hantar dan ambil anak kelas maghrib. Ustaz mereka hafiz bersanad, bacaan kualiti terbaik. Danish habis Iqra 6 dalam 4 bulan sahaja!", initial: "F" },
   ];
@@ -97,10 +97,10 @@ export default function Home() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-sm ring-1 ring-white/10 group-hover:scale-110 transition-transform duration-300">
-              <Image src="/assets/logo-icon.png" alt="OIqra Logo" fill className="object-cover" />
+              <Image src="/assets/logo-icon.png" alt="O-Iqra' Logo" fill className="object-cover" />
             </div>
             <span className={`font-display font-bold text-2xl tracking-tight transition-colors duration-300 ${isScrolled ? "text-sky-900" : "text-white"}`}>
-              OIqra
+              O-Iqra'
             </span>
           </a>
 
@@ -264,7 +264,7 @@ export default function Home() {
             {/* Left: Image */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className="relative order-2 lg:order-1">
               <div className="absolute -inset-6 bg-gradient-to-br from-sky-200/40 to-amber-200/20 rounded-[2rem] blur-xl" />
-              <Image src="/assets/founder_model_3.jpg" alt="Pengasas OIqra — Ustaz Naufal dan Ustaz Amirul Amri" width={560} height={560} className="relative rounded-[1.5rem] shadow-2xl object-cover w-full" />
+              <Image src="/assets/founder_model_3.jpg" alt="Pengasas O-Iqra' — Ustaz Nawfal" width={560} height={560} className="relative rounded-[1.5rem] shadow-2xl object-cover w-full" />
               {/* Credential badge */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-xl rounded-2xl p-5 shadow-xl border border-sky-100">
                 <div className="flex items-center gap-4">
@@ -286,7 +286,7 @@ export default function Home() {
                 Lahirkan Generasi <br className="hidden md:block" />Celik <span className="text-gradient">Al-Quran</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
-                OIqra diasaskan oleh <strong>Ustaz Naufal</strong> dan <strong>Ustaz Amirul Amri</strong>, dua anak muda yang merupakan hafiz Al-Quran 30 juzuk. Matlamat mereka jelas: menjadikan pendidikan Iqra dan Al-Quran premium mampu diakses oleh setiap kanak-kanak di Malaysia melalui teknologi digital.
+                Di bawah naungan <strong>Alphagrow Enterprise</strong>, <strong>O-Iqra'</strong> diasaskan oleh <strong>Ustaz Nawfal</strong>. Bersama tenaga pengajar kami yang berdedikasi seperti <strong>Ustaz Amirul</strong>, matlamat kami jelas: menjadikan pendidikan Iqra dan Al-Quran premium mampu diakses oleh setiap kanak-kanak di Malaysia melalui teknologi digital.
               </motion.p>
 
               <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -318,7 +318,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
             <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Kelebihan Platform</span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
-              Kenapa Ibubapa Pilih <span className="text-gradient">OIqra?</span>
+              Kenapa Ibubapa Pilih <span className="text-gradient">O-Iqra'?</span>
             </h2>
           </motion.div>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -381,6 +381,48 @@ export default function Home() {
                 </ul>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ==================== PRICING ==================== */}
+      <section className="py-14 md:py-28 bg-white" id="harga">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10 md:mb-16">
+            <span className="text-emerald-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Pelaburan Akhirat</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
+              Yuran <span className="text-gradient">Mampu Milik</span>
+            </h2>
+            <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">Kami menawarkan pendidikan berkualiti tinggi yang berpatutan untuk semua keluarga.</p>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className="max-w-md mx-auto relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
+            <div className="relative p-8 sm:p-12 rounded-[2rem] bg-white border border-slate-100 shadow-xl text-center flex flex-col items-center">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest mb-6">Promosi Terhad</span>
+              
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <p className="text-slate-400 font-bold text-2xl line-through decoration-slate-300">RM50</p>
+                <div className="flex items-baseline text-slate-900">
+                  <span className="text-2xl sm:text-3xl font-bold">RM</span>
+                  <span className="text-6xl sm:text-7xl font-display font-extrabold tracking-tight text-gradient">30</span>
+                </div>
+              </div>
+              <p className="text-slate-500 font-medium mb-8">per minggu</p>
+
+              <ul className="text-left space-y-4 mb-10 w-full">
+                {["Sesi One-to-One Talaqqi", "Guru Hafiz Bertauliah", "Laporan Prestasi Bulanan", "Masa Jadual Fleksibel"].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-slate-700 font-medium whitespace-nowrap">
+                    <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a href={waLink} target="_blank" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 block text-lg">
+                Daftar Slot RM30/mggu
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -495,17 +537,17 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-3">
               <div className="relative w-8 h-8 rounded-lg overflow-hidden brightness-150 grayscale opacity-80">
-                <Image src="/assets/logo-icon.png" alt="OIqra Logo" fill className="object-cover" />
+                <Image src="/assets/logo-icon.png" alt="O-Iqra' Logo" fill className="object-cover" />
               </div>
               <span className="font-display font-bold text-xl tracking-tight text-white">
-                OIqra
+                O-Iqra'
               </span>
             </div>
             <p className="text-sm">Pendidikan Al-Quran Premium Rangkaian Digital.</p>
           </div>
           <div className="text-center md:text-right">
             <p className="text-xl text-sky-800/60 mb-2 font-serif">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-            <p className="text-sm">© {new Date().getFullYear()} OIqra Pendidikan. Hak cipta terpelihara.</p>
+            <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara.</p>
           </div>
         </div>
       </footer>
