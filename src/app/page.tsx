@@ -61,6 +61,21 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  // Form State
+  const [formData, setFormData] = useState({
+    parentName: '',
+    childName: '',
+    childAge: '',
+    phone: ''
+  });
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/60123456789?text=${encodedText}`, '_blank');
+  };
+
   const testimonials = [
     { name: "Puan Siti Aminah", role: "Ibu kepada Aiman, 9 tahun", text: "Dulu Aiman malas nak pergi mengaji di masjid. Sejak ambil kelas talaqqi online O-Iqra', dia sendiri yang buka laptop setiap malam. Ustaz sangat sabar dan pandai tarik perhatian budak-budak.", initial: "S" },
     { name: "Encik Rahman", role: "Bapa kepada Nurin, 11 tahun", text: "Laporan kemajuan bulanan tu yang paling saya suka. Walaupun saya sibuk bekerja, saya tahu tepat huruf apa yang Nurin dah lepas dan tajwid apa yang dia sedang perbaiki.", initial: "R" },
@@ -518,25 +533,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== FINAL CTA ==================== */}
+      {/* ==================== FINAL CTA & FORM ==================== */}
       <section className="py-12 md:py-24 bg-sky-50/50" id="hubungi">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-sky-600 via-sky-500 to-sky-700 text-center p-8 sm:p-16 md:p-20 shadow-2xl shadow-sky-800/30">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-sky-700 via-sky-600 to-sky-800 p-6 sm:p-12 md:p-16 shadow-2xl shadow-sky-800/30">
             <div className="absolute top-[-50%] right-[-10%] w-[60%] h-[150%] bg-sky-400/30 rounded-full blur-[100px]" />
             <div className="absolute bottom-[-30%] left-[-10%] w-[40%] h-[100%] bg-amber-400/10 rounded-full blur-[80px]" />
 
-            <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
-                Sedia Untuk Mula <br className="hidden sm:block" />
-                <span className="text-amber-300">Kelas Digital Anak Anda?</span>
-              </h2>
-              <p className="text-sky-100 mb-10 text-base sm:text-lg max-w-2xl mx-auto">
-                Tekan butang di bawah untuk terus ke WhatsApp kami. Kuota slot bulanan adalah terhad — daftar sekarang sebelum penuh!
-              </p>
-              <a href={waLink} target="_blank" className="inline-flex items-center gap-3 bg-white text-sky-700 hover:bg-sky-50 font-bold py-4 px-10 rounded-full shadow-xl transition-transform transform hover:-translate-y-1 text-base sm:text-lg">
-                <MessageCircle size={22} fill="currentColor" />
-                Daftar Slot Sekarang
-              </a>
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Left Text */}
+              <div className="text-center lg:text-left">
+                <span className="inline-block py-1.5 px-4 rounded-full bg-sky-500/30 text-sky-100 text-xs font-bold uppercase tracking-widest mb-6 border border-sky-400/30">Kuota Terhad</span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
+                  Sedia Untuk Mula <br className="hidden sm:block" />
+                  <span className="text-amber-300">Kelas Digital Anak Anda?</span>
+                </h2>
+                <p className="text-sky-100 mb-8 text-base sm:text-lg max-w-lg mx-auto lg:mx-0">
+                  Isi borang di sebelah untuk tempah slot promosi RM30/minggu. Sistem kami akan menghantar butiran ini terus ke WhatsApp admin O-Iqra'.
+                </p>
+                <div className="hidden lg:flex items-center gap-4 text-sky-200 text-sm font-medium">
+                  <div className="flex items-center gap-2"><CheckCircle2 size={18} className="text-amber-400" /> Tiada Yuran Pendaftaran</div>
+                  <div className="flex items-center gap-2"><CheckCircle2 size={18} className="text-amber-400" /> Penilaian Percuma</div>
+                </div>
+              </div>
+
+              {/* Right Form */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-6 text-center">Borang Pendaftaran</h3>
+                <form onSubmit={handleFormSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1">Nama Ibu/Bapa</label>
+                    <input type="text" required value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Cth: Ahmad bin Ali" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">Nama Anak</label>
+                      <input type="text" required value={formData.childName} onChange={(e) => setFormData({...formData, childName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Nama penuh/panggilan" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">Umur Anak</label>
+                      <input type="number" required value={formData.childAge} onChange={(e) => setFormData({...formData, childAge: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Tahun" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1">No. Telefon (WhatsApp)</label>
+                    <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="01X-XXXXXXX" />
+                  </div>
+                  <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform hover:-translate-y-0.5 mt-2">
+                    <MessageCircle size={20} />
+                    Hantar via WhatsApp
+                  </button>
+                  <p className="text-center text-xs text-slate-400 mt-4">Maklumat anda selamat dan tidak akan dikongsi.</p>
+                </form>
+              </div>
             </div>
           </motion.div>
         </div>
