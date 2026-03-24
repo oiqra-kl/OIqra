@@ -67,12 +67,13 @@ export default function Home() {
     parentName: '',
     childName: '',
     childAge: '',
+    currentLevel: '',
     phone: ''
   });
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
+    const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/60123456789?text=${encodedText}`, '_blank');
   };
@@ -575,6 +576,17 @@ export default function Home() {
                       <label className="block text-sm font-medium text-slate-700 mb-1">Umur Anak</label>
                       <input type="number" required value={formData.childAge} onChange={(e) => setFormData({...formData, childAge: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Tahun" />
                     </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1">Tahap Bacaan Semasa</label>
+                    <select required value={formData.currentLevel} onChange={(e) => setFormData({...formData, currentLevel: e.target.value})} className={`w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all focus:bg-white ${formData.currentLevel === '' ? 'bg-slate-50 text-slate-400' : 'bg-white text-slate-900'}`}>
+                      <option value="" disabled>Pilih tahap...</option>
+                      <option value="Belum Kenal Huruf (Asas)">Belum Kenal Huruf (Asas)</option>
+                      <option value="Iqra 1 - 3">Iqra 1 - 3</option>
+                      <option value="Iqra 4 - 6">Iqra 4 - 6</option>
+                      <option value="Al-Quran (Khatam/Tajwid)">Al-Quran (Khatam/Tajwid)</option>
+                      <option value="Tidak Pasti (Perlu Ujian)">Tidak Pasti (Perlu Ujian)</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1">No. Telefon (WhatsApp)</label>
