@@ -70,12 +70,33 @@ export default function Home() {
     currentLevel: '',
     phone: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+
+    // Send data to Google Sheets silently in the background
+    if (scriptUrl) {
+      try {
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ timestamp: new Date().toISOString(), ...formData })
+        });
+      } catch (err) {
+        console.error("Failed to save to sheets", err);
+      }
+    }
+
     const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/60123456789?text=${encodedText}`, '_blank');
+    
+    setIsSubmitting(false);
   };
 
   const testimonials = [
@@ -592,9 +613,8 @@ export default function Home() {
                     <label className="block text-sm font-medium text-slate-700 mb-1">No. Telefon (WhatsApp)</label>
                     <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="01X-XXXXXXX" />
                   </div>
-                  <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform hover:-translate-y-0.5 mt-2">
-                    <MessageCircle size={20} />
-                    Hantar via WhatsApp
+                  <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 disabled:opacity-75 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform hover:-translate-y-0.5 mt-2">
+                    {isSubmitting ? <span className="animate-pulse">Menyimpan maklumat...</span> : <><MessageCircle size={20} /> Hantar via WhatsApp</>}
                   </button>
                   <p className="text-center text-xs text-slate-400 mt-4">Maklumat anda selamat dan tidak akan dikongsi.</p>
                 </form>
