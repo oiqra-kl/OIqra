@@ -21,6 +21,7 @@ import {
   Shield,
   ShieldCheck,
   Award,
+  UserPlus,
 } from "lucide-react";
 
 /* ---------- Animation Variants ---------- */
@@ -126,7 +127,7 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
-            <a href={waLink} target="_blank" rel="noreferrer" className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-semibold py-2.5 px-7 rounded-full shadow-lg shadow-sky-500/25 transition-all hover:shadow-xl hover:shadow-sky-500/30 transform hover:-translate-y-0.5">
+            <a href="#hubungi" className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-semibold py-2.5 px-7 rounded-full shadow-lg shadow-sky-500/25 transition-all hover:shadow-xl hover:shadow-sky-500/30 transform hover:-translate-y-0.5">
               Daftar Sekarang
             </a>
           </div>
@@ -149,8 +150,8 @@ export default function Home() {
                     {link.label}
                   </a>
                 ))}
-                <a href={waLink} target="_blank" className="mt-3 text-center bg-sky-500 text-white font-semibold py-3.5 rounded-2xl shadow-lg">
-                  Daftar Kelas Online
+                <a href="#hubungi" className="mt-3 text-center bg-sky-500 text-white font-semibold py-3.5 rounded-2xl shadow-lg">
+                  Daftar Sekarang
                 </a>
               </div>
             </motion.div>
@@ -188,9 +189,9 @@ export default function Home() {
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-                <a href={waLink} target="_blank" className="flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold py-4 px-8 rounded-full shadow-xl shadow-sky-500/30 transition-all transform hover:-translate-y-1 text-base">
-                  <MessageCircle size={20} />
-                  Daftar Melalui WhatsApp
+                <a href="#hubungi" className="flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold py-4 px-8 rounded-full shadow-xl shadow-sky-500/30 transition-all transform hover:-translate-y-1 text-base">
+                  <UserPlus size={20} />
+                  Daftar Kelas Sekarang
                 </a>
                 <a href="#cara" className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold py-4 px-8 rounded-full backdrop-blur-md transition-colors text-base">
                   Cara Bermula
@@ -434,7 +435,7 @@ export default function Home() {
                 ))}
               </ul>
 
-              <a href={waLink} target="_blank" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 block text-lg">
+              <a href="#hubungi" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 block text-lg">
                 Daftar Slot RM30/mggu
               </a>
             </div>
