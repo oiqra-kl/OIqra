@@ -330,13 +330,13 @@ export default function Home() {
             {/* Right: Features */}
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
-                { title: "Guru Hafiz", desc: "Hafiz bertauliah.", icon: <GraduationCap className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-                { title: "Kumpulan Kecil", desc: "5-10 orang per kelas.", icon: <Users className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-                { title: "Masa Fleksibel", desc: "Ikut jadual anda.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-                { title: "100% Online", desc: "Belajar di mana sahaja.", icon: <Globe className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+                { title: "Guru Hafiz", desc: "Hafiz bertauliah.", icon: <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> },
+                { title: "Kumpulan Kecil", desc: "5-10 orang per kelas.", icon: <Users className="w-5 h-5 md:w-8 md:h-8" /> },
+                { title: "Masa Fleksibel", desc: "Ikut jadual anda.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8" /> },
+                { title: "100% Online", desc: "Belajar di mana sahaja.", icon: <Globe className="w-5 h-5 md:w-8 md:h-8" /> },
               ].map((item, idx) => (
                 <motion.div key={item.title} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="p-4 sm:p-6 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                  <div className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-sky-50 flex items-center justify-center mb-3 md:mb-5 group-hover:bg-sky-600 transition-colors duration-300">
+                  <div className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-3 md:mb-5 group-hover:bg-sky-600 transition-colors duration-300">
                     <div className="group-hover:text-white transition-colors duration-300">{item.icon}</div>
                   </div>
                   <h3 className="text-sm md:text-lg font-display font-bold text-slate-900 mb-1">{item.title}</h3>
