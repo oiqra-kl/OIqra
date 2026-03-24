@@ -243,7 +243,7 @@ export default function Home() {
               { step: "01", title: "Hubungi", desc: "WhatsApp & beri butiran anak.", icon: <MessageCircle className="w-5 h-5 md:w-8 md:h-8 text-sky-600" />, color: "bg-sky-50" },
               { step: "02", title: "Penilaian", desc: "Guru nilai bacaan percuma.", icon: <BookOpen className="w-5 h-5 md:w-8 md:h-8 text-emerald-600" />, color: "bg-emerald-50" },
               { step: "03", title: "Jadual", desc: "Pilih waktu sesi sesuai.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-amber-600" />, color: "bg-amber-50" },
-              { step: "04", title: "Mula!", desc: "Terus mula mengaji 1-ke-1.", icon: <Star className="w-5 h-5 md:w-8 md:h-8 text-purple-600" />, color: "bg-purple-50" },
+              { step: "04", title: "Mula!", desc: "Mula kelas kumpulan kecil.", icon: <Star className="w-5 h-5 md:w-8 md:h-8 text-purple-600" />, color: "bg-purple-50" },
             ].map((s, idx) => (
               <motion.div key={s.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="relative group p-4 sm:p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
                 <div className={`w-12 h-12 md:w-20 md:h-20 ${s.color} rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
@@ -291,9 +291,9 @@ export default function Home() {
 
               <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: Shield, title: "Guru Bertauliah", desc: "Ijazah Sanad & Hafiz 30 Juzuk" },
+                  { icon: Shield, title: "Guru Bertauliah", desc: "Kelayakan Diiktiraf" },
                   { icon: Monitor, title: "100% Online", desc: "Belajar dari mana sahaja" },
-                  { icon: Users, title: "1-to-1 Talaqqi", desc: "Tumpuan penuh setiap sesi" },
+                  { icon: Users, title: "Kumpulan Kecil", desc: "5-10 pelajar per sesi" },
                   { icon: Sparkles, title: "Kurikulum Terstruktur", desc: "Dari Iqra 1 hingga Al-Quran" },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-sky-100 shadow-sm">
@@ -331,7 +331,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
                 { title: "Guru Hafiz", desc: "Hafiz bertauliah.", icon: <GraduationCap className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
-                { title: "1-ke-1", desc: "Tumpuan peribadi.", icon: <ShieldCheck className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
+                { title: "Kumpulan Kecil", desc: "5-10 orang per kelas.", icon: <Users className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
                 { title: "Masa Fleksibel", desc: "Ikut jadual anda.", icon: <Clock className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
                 { title: "100% Online", desc: "Belajar di mana sahaja.", icon: <Globe className="w-5 h-5 md:w-8 md:h-8 text-sky-600" /> },
               ].map((item, idx) => (
@@ -411,7 +411,7 @@ export default function Home() {
               <p className="text-slate-500 font-medium mb-8">per minggu</p>
 
               <ul className="text-left space-y-4 mb-10 w-full">
-                {["Sesi One-to-One Talaqqi", "Guru Hafiz Bertauliah", "Laporan Prestasi Bulanan", "Masa Jadual Fleksibel"].map((feature) => (
+                {["Kelas Kumpulan Kecil (5-10)", "Guru Hafiz Bertauliah", "Laporan Prestasi Bulanan", "Masa Jadual Fleksibel"].map((feature) => (
                   <li key={feature} className="flex items-center gap-3 text-slate-700 font-medium whitespace-nowrap">
                     <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0" />
                     <span>{feature}</span>
@@ -440,9 +440,20 @@ export default function Home() {
           <div className="relative max-w-4xl mx-auto">
             <div className="overflow-hidden">
               <motion.div
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = offset.x;
+                  if (swipe < -50) {
+                    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                  } else if (swipe > 50) {
+                    setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+                  }
+                }}
                 animate={{ x: `-${currentTestimonial * 100}%` }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="flex"
+                className="flex cursor-grab active:cursor-grabbing"
               >
                 {testimonials.map((review, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
