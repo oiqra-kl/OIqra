@@ -22,6 +22,8 @@ import {
   ShieldCheck,
   Award,
   UserPlus,
+  AlertTriangle,
+  XCircle,
 } from "lucide-react";
 
 /* ---------- Animation Variants ---------- */
@@ -61,7 +63,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -93,27 +95,18 @@ export default function Home() {
       }
     }
 
-    const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
-    const encodedText = encodeURIComponent(text);
-    
-    setIsSubmitting(false);
-    setShowSuccessModal(true);
-  };
-
-  const openWhatsApp = () => {
+    // Auto-redirect to WhatsApp immediately (zero friction)
     const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/60174122339?text=${encodedText}`, '_blank');
-    setShowSuccessModal(false);
-    // Reset form after successful navigation
-    setFormData({
-      parentName: '',
-      childName: '',
-      childAge: '',
-      currentLevel: '',
-      phone: ''
-    });
+    
+    setIsSubmitting(false);
+    setFormSubmitted(true);
+    // Reset form
+    setFormData({ parentName: '', childName: '', childAge: '', currentLevel: '', phone: '' });
   };
+
+
 
   const testimonials = [
     { name: "Puan Siti Aminah", role: "Ibu kepada Aiman, 9 tahun", text: "Dulu Aiman malas nak pergi mengaji di masjid. Sejak ambil kelas talaqqi online O-Iqra', dia sendiri yang buka laptop setiap malam. Ustaz sangat sabar dan pandai tarik perhatian budak-budak.", initial: "S" },
@@ -210,26 +203,26 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 backdrop-blur-md mb-8">
-                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-                <span className="text-sm font-medium text-sky-200">Pengambilan Pelajar 2026 Kini Dibuka</span>
+              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/40 bg-amber-400/10 backdrop-blur-md mb-8">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                <span className="text-sm font-semibold text-amber-200">Batch April — Tinggal 12 Slot Sahaja</span>
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold text-white leading-[1.08] mb-6 tracking-tight">
-                Pendidikan <br className="hidden sm:block" />Al-Quran Premium{" "}
+                Anak Anda Lancar <br className="hidden sm:block" />Mengaji Dalam{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-400 to-amber-400">
-                  100% Online
+                  3–6 Bulan
                 </span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="text-base sm:text-lg text-sky-100/80 max-w-xl mb-10 leading-relaxed">
-                Platform pembelajaran Iqra dan Al-Quran melalui kaedah talaqqi bersemuka digital untuk pelajar umur 7–17 tahun. Membina generasi mahir tajwid dari keselesaan rumah anda.
+                Dari tak kenal huruf hingga lancar membaca Al-Quran dengan tajwid — tanpa perlu keluar rumah. Kelas kumpulan kecil (5–10 pelajar) bersama guru Hafiz bersanad, 100% online.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                 <a href="#hubungi" className="flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold py-4 px-8 rounded-full shadow-xl shadow-sky-500/30 transition-all transform hover:-translate-y-1 text-base">
                   <UserPlus size={20} />
-                  Daftar Kelas Sekarang
+                  Claim Slot RM30 Sekarang
                 </a>
                 <a href="#cara" className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold py-4 px-8 rounded-full backdrop-blur-md transition-colors text-base">
                   Cara Bermula
@@ -285,7 +278,7 @@ export default function Home() {
       {/* ==================== STATISTICS COUNTER ==================== */}
       <section className="py-12 bg-white border-y border-slate-100">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 Texto-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
             {[
               { label: "Pelajar Berdaftar", value: "500+", icon: <Users size={24} className="text-sky-500" /> },
               { label: "Ustaz & Ustazah", value: "30+", icon: <GraduationCap size={24} className="text-sky-500" /> },
@@ -475,13 +468,13 @@ export default function Home() {
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
               Yuran <span className="text-gradient">Mampu Milik</span>
             </h2>
-            <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">Kami menawarkan pendidikan berkualiti tinggi yang berpatutan untuk semua keluarga.</p>
+            <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">Pendidikan bertaraf premium pada harga promosi. Terhad untuk pendaftaran awal sahaja.</p>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className="max-w-md mx-auto relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
             <div className="relative p-8 sm:p-12 rounded-[2rem] bg-white border border-slate-100 shadow-xl text-center flex flex-col items-center">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest mb-6">Promosi Terhad</span>
+              <span className="inline-block py-1.5 px-4 rounded-full bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest mb-6">🔥 Batch April — Tinggal 12 Slot</span>
               
               <div className="flex items-center justify-center gap-3 mb-2">
                 <p className="text-slate-400 font-bold text-2xl line-through decoration-slate-300">RM50</p>
@@ -490,11 +483,19 @@ export default function Home() {
                   <span className="text-6xl sm:text-7xl font-display font-extrabold tracking-tight text-gradient">30</span>
                 </div>
               </div>
-              <p className="text-slate-500 font-medium mb-8">per minggu</p>
+              <p className="text-slate-500 font-medium mb-8">per minggu (RM120/bulan)</p>
 
               <ul className="text-left space-y-4 mb-10 w-full">
-                {["Kelas Kumpulan Kecil (5-10)", "Guru Hafiz Bertauliah", "Laporan Prestasi Bulanan", "Masa Jadual Fleksibel"].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-slate-700 font-medium whitespace-nowrap">
+                {[
+                  "8 sesi talaqqi per bulan",
+                  "Kelas Kumpulan Kecil (5-10 pelajar)",
+                  "Guru Hafiz Bersanad & Bertauliah",
+                  "Laporan Prestasi Bulanan ke WhatsApp",
+                  "Penilaian Bacaan Percuma (Pertama)",
+                  "Masa Jadual Fleksibel (Pagi/Petang/Malam)",
+                  "Akses Dari Mana Sahaja di Malaysia",
+                ].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-slate-700 font-medium">
                     <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
@@ -502,10 +503,47 @@ export default function Home() {
               </ul>
 
               <a href="#hubungi" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 block text-lg">
-                Daftar Slot RM30/mggu
+                Claim Slot RM30 Sekarang
               </a>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ==================== OBJECTION HANDLING ==================== */}
+      <section className="py-14 md:py-28 bg-sky-50/50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Kami Faham Kebimbangan Anda</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
+              Masalah Biasa <span className="text-gradient">Ibu Bapa</span>
+            </h2>
+            <p className="text-slate-500 text-base sm:text-lg">Setiap kebimbangan anda sudah kami fikirkan. Ini solusi kami.</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { problem: "Anak saya tak fokus dan suka main.", solution: "Kelas kumpulan kecil (max 10 orang) dengan guru yang terlatih menarik perhatian kanak-kanak secara interaktif.", icon: <Users size={20} /> },
+              { problem: "Online learning tak berkesan?", solution: "Kaedah talaqqi bersemuka digital — guru dengar bacaan anak satu per satu, sama seperti mengadap ustaz secara fizikal.", icon: <Monitor size={20} /> },
+              { problem: "Anak saya malu nak membaca.", solution: "Persekitaran kelas yang selamat dan menyokong. Guru kami terlatih membimbing pelajar pemalu dengan penuh sabar.", icon: <Heart size={20} /> },
+              { problem: "Jadual kami tak menentu, susah nak commit.", solution: "3 sesi sehari (Pagi/Petang/Malam) dengan fleksibiliti menukar jadual. Kami faham realiti ibu bapa yang sibuk.", icon: <Clock size={20} /> },
+            ].map((item, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-red-50 text-red-400 flex items-center justify-center flex-shrink-0">
+                    <XCircle size={20} />
+                  </div>
+                  <p className="text-slate-800 font-bold text-sm sm:text-base">"{item.problem}"</p>
+                </div>
+                <div className="flex items-start gap-4 ml-0 pl-14">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center flex-shrink-0 -ml-14">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.solution}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -570,6 +608,42 @@ export default function Home() {
                 />
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== TEACHER PROFILES ==================== */}
+      <section className="py-14 md:py-28 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <span className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Tenaga Pengajar</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-3">
+              Kenali <span className="text-gradient">Guru Kami</span>
+            </h2>
+            <p className="text-slate-500 text-base sm:text-lg">Setiap guru O-Iqra' adalah Hafiz Al-Quran yang berdedikasi dan terlatih dalam pengajaran digital.</p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {[
+              { name: "Ustaz Nawfal", role: "Pengasas & Pengarah Kurikulum", credentials: ["Hafiz Al-Quran 30 Juzuk", "Pemegang Ijazah Sanad", "Pengasas Alphagrow Enterprise"], initial: "N" },
+              { name: "Ustaz Amirul", role: "Ketua Guru & Pakar Tajwid", credentials: ["Hafiz Al-Quran 30 Juzuk", "Pakar Tajwid & Makhraj Huruf", "5+ Tahun Pengalaman Mengajar"], initial: "A" },
+            ].map((teacher, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.15 }} className="relative bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center">
+                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center font-display font-bold text-3xl text-white mb-6 shadow-lg shadow-sky-500/20">
+                  {teacher.initial}
+                </div>
+                <h3 className="text-xl font-display font-bold text-slate-900 mb-1">{teacher.name}</h3>
+                <p className="text-sm text-sky-600 font-semibold mb-5">{teacher.role}</p>
+                <ul className="space-y-2">
+                  {teacher.credentials.map((cred) => (
+                    <li key={cred} className="flex items-center gap-2 text-sm text-slate-600 justify-center">
+                      <ShieldCheck size={16} className="text-emerald-500 flex-shrink-0" />
+                      {cred}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -689,55 +763,24 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ==================== SUCCESS MODAL ==================== */}
+      {/* ==================== INLINE SUCCESS TOAST ==================== */}
       <AnimatePresence>
-        {showSuccessModal && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              exit={{ opacity: 0 }}
-              onClick={() => setShowSuccessModal(false)}
-              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white rounded-[2.5rem] p-8 md:p-12 max-w-lg w-full shadow-2xl overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600" />
-              <div className="absolute -top-12 -right-12 w-32 h-32 bg-sky-50 rounded-full" />
-              
-              <div className="relative text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full mb-6">
-                  <CheckCircle2 size={40} />
-                </div>
-                <h2 className="text-3xl font-display font-bold text-slate-900 mb-4">Pendaftaran Berjaya!</h2>
-                <div className="space-y-4 mb-8">
-                  <p className="text-slate-600 leading-relaxed text-lg">
-                    Data anak anda telah selamat disimpan dalam sistem kami.
-                  </p>
-                  <div className="bg-amber-50 border border-amber-100 p-6 rounded-2xl">
-                    <p className="text-amber-800 text-base font-bold flex items-center justify-center gap-2">
-                      ⚠️ Langkah Terakhir (MANDATORY):
-                    </p>
-                    <p className="text-amber-700 text-sm mt-2 leading-relaxed">
-                      Sila tekan butang di bawah untuk menghantar butiran ke WhatsApp admin bagi **Pengesahan & Verifikasi** pendaftaran anak anda.
-                    </p>
-                  </div>
-                </div>
-                
-                <button
-                  onClick={openWhatsApp}
-                  className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-bold py-5 px-8 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1"
-                >
-                  <MessageCircle size={24} />
-                  Sahkan di WhatsApp Sekarang
-                </button>
-              </div>
-            </motion.div>
-          </div>
+        {formSubmitted && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-[200] bg-emerald-600 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-sm"
+          >
+            <CheckCircle2 size={24} />
+            <div>
+              <p className="font-bold text-sm">Pendaftaran Berjaya!</p>
+              <p className="text-xs text-emerald-100">Data disimpan. Sila hantar mesej di WhatsApp.</p>
+            </div>
+            <button onClick={() => setFormSubmitted(false)} className="ml-2 text-emerald-200 hover:text-white">
+              <X size={18} />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
