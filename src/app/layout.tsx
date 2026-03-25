@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "OIqra — Kelas Iqra & Al-Quran Online Terbaik",
+  title: "O-Iqra — Kelas Iqra & Al-Quran Online Terbaik",
   description: "Platform pembelajaran Iqra dan Al-Quran 100% Online secara talaqqi bersama guru hafiz bersanad. Daftar sekarang!",
   keywords: ["kelas iqra online", "mengaji online", "talaqqi online", "tahfiz", "malaysia"],
   icons: {

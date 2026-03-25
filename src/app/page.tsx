@@ -54,7 +54,7 @@ const faqs = [
   { q: "Kawasan mana yang diliputi oleh O-Iqra'?", a: "Oleh kerana O-Iqra' beroperasi 100% secara dalam talian, kami menerima pelajar dari SELURUH Malaysia tanpa mengira lokasi geografi." },
 ];
 
-const waLink = "https://wa.me/60123456789?text=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendaftar%20anak%20saya%20dalam%20kelas%20online%20O-Iqra'.";
+const waLink = "https://wa.me/60174122339?text=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendaftar%20anak%20saya%20dalam%20kelas%20online%20O-Iqra'.";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,7 +94,7 @@ export default function Home() {
 
     const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/60123456789?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/60174122339?text=${encodedText}`, '_blank');
     
     setIsSubmitting(false);
   };
