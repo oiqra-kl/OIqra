@@ -61,6 +61,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -94,9 +95,24 @@ export default function Home() {
 
     const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/60174122339?text=${encodedText}`, '_blank');
     
     setIsSubmitting(false);
+    setShowSuccessModal(true);
+  };
+
+  const openWhatsApp = () => {
+    const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/60174122339?text=${encodedText}`, '_blank');
+    setShowSuccessModal(false);
+    // Reset form after successful navigation
+    setFormData({
+      parentName: '',
+      childName: '',
+      childAge: '',
+      currentLevel: '',
+      phone: ''
+    });
   };
 
   const testimonials = [
@@ -265,6 +281,34 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ==================== STATISTICS COUNTER ==================== */}
+      <section className="py-12 bg-white border-y border-slate-100">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 Texto-center">
+            {[
+              { label: "Pelajar Berdaftar", value: "500+", icon: <Users size={24} className="text-sky-500" /> },
+              { label: "Ustaz & Ustazah", value: "30+", icon: <GraduationCap size={24} className="text-sky-500" /> },
+              { label: "Rating Ibu Bapa", value: "5/5", icon: <Star size={24} className="text-amber-400" fill="currentColor" /> },
+              { label: "Kepuasan Pelajar", value: "100%", icon: <Award size={24} className="text-sky-500" /> },
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center"
+              >
+                <div className="mb-3 p-3 bg-sky-50 rounded-2xl">{stat.icon}</div>
+                <div className="text-2xl md:text-4xl font-display font-bold text-slate-900 mb-1">{stat.value}</div>
+                <div className="text-[10px] md:text-sm font-bold text-slate-500 uppercase tracking-widest text-center">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ==================== CARA BERMULA (HOW IT WORKS) ==================== */}
       <section className="py-12 md:py-28 bg-white" id="cara">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -644,6 +688,58 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* ==================== SUCCESS MODAL ==================== */}
+      <AnimatePresence>
+        {showSuccessModal && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              onClick={() => setShowSuccessModal(false)}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white rounded-[2.5rem] p-8 md:p-12 max-w-lg w-full shadow-2xl overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600" />
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-sky-50 rounded-full" />
+              
+              <div className="relative text-center">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full mb-6">
+                  <CheckCircle2 size={40} />
+                </div>
+                <h2 className="text-3xl font-display font-bold text-slate-900 mb-4">Pendaftaran Berjaya!</h2>
+                <div className="space-y-4 mb-8">
+                  <p className="text-slate-600 leading-relaxed text-lg">
+                    Data anak anda telah selamat disimpan dalam sistem kami.
+                  </p>
+                  <div className="bg-amber-50 border border-amber-100 p-6 rounded-2xl">
+                    <p className="text-amber-800 text-base font-bold flex items-center justify-center gap-2">
+                      ⚠️ Langkah Terakhir (MANDATORY):
+                    </p>
+                    <p className="text-amber-700 text-sm mt-2 leading-relaxed">
+                      Sila tekan butang di bawah untuk menghantar butiran ke WhatsApp admin bagi **Pengesahan & Verifikasi** pendaftaran anak anda.
+                    </p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={openWhatsApp}
+                  className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-bold py-5 px-8 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1"
+                >
+                  <MessageCircle size={24} />
+                  Sahkan di WhatsApp Sekarang
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* ==================== FLOATING WHATSAPP ==================== */}
       <motion.a
