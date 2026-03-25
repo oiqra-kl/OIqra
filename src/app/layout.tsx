@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "O-Iqra'",
     title: "O-Iqra' — Anak Anda Lancar Mengaji Dalam 3–6 Bulan",
     description: "Kelas Iqra & Al-Quran 100% online secara talaqqi bersama guru Hafiz bersanad. Dari RM30/minggu sahaja.",
-    images: [{ url: "https://o-iqra.com.my/assets/hero-student.png", width: 1200, height: 630, alt: "O-Iqra' Kelas Al-Quran Online" }],
+    images: [{ url: "/assets/hero-student.png", width: 1200, height: 630, alt: "O-Iqra' Kelas Al-Quran Online" }],
   },
   twitter: {
     card: "summary_large_image",
