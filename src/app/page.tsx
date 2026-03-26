@@ -215,7 +215,7 @@ export default function Home() {
                 </span>
               </motion.h1>
 
-              <motion.p variants={fadeUp} className="text-base sm:text-lg text-sky-100/80 max-w-xl mb-10 leading-relaxed">
+              <motion.p variants={fadeUp} className="text-base sm:text-lg text-sky-100 max-w-xl mb-10 leading-relaxed">
                 Dari tak kenal huruf hingga lancar membaca Al-Quran dengan tajwid — tanpa perlu keluar rumah. Kelas kumpulan kecil (5–10 pelajar) bersama guru Hafiz bersanad, 100% online.
               </motion.p>
 
@@ -694,7 +694,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-slate-700 mb-1">Nama Ibu/Bapa</label>
                     <input type="text" required value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Cth: Ahmad bin Ali" />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-1">Nama Anak</label>
                       <input type="text" required value={formData.childName} onChange={(e) => setFormData({...formData, childName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Nama penuh/panggilan" />
@@ -745,7 +745,7 @@ export default function Home() {
             <p className="text-sm">Pendidikan Al-Quran Premium Rangkaian Digital.</p>
           </div>
           <div className="text-center md:text-right">
-            <p className="text-2xl text-sky-800/60 mb-2 font-arabic font-bold">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+            <p className="text-2xl text-sky-800/60 mb-2 font-bold" style={{ fontFamily: "'Amiri', serif" }}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
             <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara.</p>
           </div>
         </div>

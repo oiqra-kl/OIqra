@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Amiri } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,11 +12,7 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-const amiri = Amiri({
-  variable: "--font-amiri",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "700"],
-});
+
 
 export const metadata: Metadata = {
   title: "O-Iqra' — Anak Anda Lancar Mengaji Dalam 3–6 Bulan | Kelas Online #1",
@@ -79,13 +75,14 @@ export default function RootLayout({
   return (
     <html lang="ms" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} ${amiri.variable} font-sans antialiased bg-slate-50 text-slate-900 selection:bg-blue-500 selection:text-white`}
+        className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-slate-50 text-slate-900 selection:bg-blue-500 selection:text-white`}
         suppressHydrationWarning
       >
         {children}

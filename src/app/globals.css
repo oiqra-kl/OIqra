@@ -37,7 +37,7 @@
   }
 
   .font-arabic {
-    font-family: var(--font-arabic), serif;
+    font-family: 'Amiri', serif;
   }
 }
 
