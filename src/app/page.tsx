@@ -229,19 +229,7 @@ export default function Home() {
                 </a>
               </motion.div>
 
-              {/* Stats */}
-              <motion.div variants={fadeUp} className="mt-14 pt-8 border-t border-sky-700/40 grid grid-cols-3 gap-6 max-w-md">
-                {[
-                  { num: "30+", label: "Guru" },
-                  { num: "100%", label: "Online" },
-                  { num: "500+", label: "Pelajar" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center sm:text-left">
-                    <p className="text-2xl sm:text-3xl font-display font-bold text-white">{s.num}</p>
-                    <p className="text-xs tracking-widest uppercase font-medium text-sky-300/70 mt-1">{s.label}</p>
-                  </div>
-                ))}
-              </motion.div>
+
             </motion.div>
 
             {/* Right: Hero Image */}
