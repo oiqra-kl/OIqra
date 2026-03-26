@@ -3,6 +3,7 @@
 @theme {
   --font-sans: var(--font-inter);
   --font-display: var(--font-outfit);
+  --font-arabic: var(--font-amiri);
 
   /* Soft Blue Palette */
   --color-sky: #e0f2fe;
@@ -33,6 +34,10 @@
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(14, 116, 183, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic), serif;
   }
 }
 

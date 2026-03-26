@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Outfit, Amiri } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,6 +10,12 @@ const inter = Inter({
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+});
+
+const amiri = Amiri({
+  variable: "--font-amiri",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +51,7 @@ const jsonLd = {
       description: "Kelas Iqra dan Al-Quran 100% online secara talaqqi bersama guru Hafiz bersanad untuk pelajar umur 7-17 tahun.",
       provider: {
         "@type": "Organization",
-        name: "O-Iqra' (Alphagrow Enterprise)",
+        name: "O-Iqra' (Alpha Growth Consultancy)",
       },
       offers: {
         "@type": "Offer",
@@ -79,7 +85,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-slate-50 text-slate-900 selection:bg-blue-500 selection:text-white`}
+        className={`${inter.variable} ${outfit.variable} ${amiri.variable} font-sans antialiased bg-slate-50 text-slate-900 selection:bg-blue-500 selection:text-white`}
         suppressHydrationWarning
       >
         {children}

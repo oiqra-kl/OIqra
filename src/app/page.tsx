@@ -339,7 +339,7 @@ export default function Home() {
             {/* Left: Image */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleIn} className="relative order-2 lg:order-1">
               <div className="absolute -inset-6 bg-gradient-to-br from-sky-200/40 to-amber-200/20 rounded-[2rem] blur-xl" />
-              <Image src="/assets/founder_model_3.jpg" alt="Pengasas O-Iqra' — Ustaz Nawfal" width={560} height={560} className="relative rounded-[1.5rem] shadow-2xl object-cover w-full" />
+              <Image src="/assets/founder_model_3.jpg" alt="Pasukan O-Iqra'" width={560} height={560} className="relative rounded-[1.5rem] shadow-2xl object-cover w-full" />
               {/* Credential badge */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-xl rounded-2xl p-5 shadow-xl border border-sky-100">
                 <div className="flex items-center gap-4">
@@ -361,7 +361,7 @@ export default function Home() {
                 Lahirkan Generasi <br className="hidden md:block" />Celik <span className="text-gradient">Al-Quran</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
-                Di bawah naungan <strong>Alphagrow Enterprise</strong>, <strong>O-Iqra'</strong> diasaskan oleh <strong>Ustaz Nawfal</strong>. Bersama tenaga pengajar kami yang berdedikasi seperti <strong>Ustaz Amirul</strong>, matlamat kami jelas: menjadikan pendidikan Iqra dan Al-Quran premium mampu diakses oleh setiap kanak-kanak di Malaysia melalui teknologi digital.
+                Di bawah naungan <strong>Alpha Growth Consultancy</strong>, <strong>O-Iqra'</strong> ditubuhkan dengan misi yang jelas: menjadikan pendidikan Iqra dan Al-Quran premium mampu diakses oleh setiap kanak-kanak di Malaysia melalui teknologi digital. Disokong oleh lebih 25 tahun pengalaman dalam pengurusan korporat dan latihan.
               </motion.p>
 
               <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -625,8 +625,8 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
-              { name: "Ustaz Nawfal", role: "Pengasas & Pengarah Kurikulum", credentials: ["Hafiz Al-Quran 30 Juzuk", "Pemegang Ijazah Sanad", "Pengasas Alphagrow Enterprise"], initial: "N" },
               { name: "Ustaz Amirul", role: "Ketua Guru & Pakar Tajwid", credentials: ["Hafiz Al-Quran 30 Juzuk", "Pakar Tajwid & Makhraj Huruf", "5+ Tahun Pengalaman Mengajar"], initial: "A" },
+              { name: "Pasukan O-Iqra'", role: "Tenaga Pengajar Berdedikasi", credentials: ["Semua Guru Hafiz Bersanad", "Terlatih Dalam Pengajaran Digital", "Di bawah Alpha Growth Consultancy"], initial: "O" },
             ].map((teacher, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.15 }} className="relative bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center">
                 <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center font-display font-bold text-3xl text-white mb-6 shadow-lg shadow-sky-500/20">
@@ -757,7 +757,7 @@ export default function Home() {
             <p className="text-sm">Pendidikan Al-Quran Premium Rangkaian Digital.</p>
           </div>
           <div className="text-center md:text-right">
-            <p className="text-xl text-sky-800/60 mb-2 font-serif">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+            <p className="text-2xl text-sky-800/60 mb-2 font-arabic font-bold">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
             <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara.</p>
           </div>
         </div>
