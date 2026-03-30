@@ -754,9 +754,10 @@ export default function Home() {
             </div>
             <p className="text-sm">Pendidikan Al-Quran Premium Rangkaian Digital.</p>
           </div>
-          <div className="text-center md:text-right">
-            <p className="text-2xl text-sky-800/60 mb-2 font-bold font-amiri">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-            <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara. <br className="md:hidden" /> Diuruskan oleh Alpha Growth Consultancy (202503208073 (JM1028402-H))</p>
+          <div className="text-center md:text-right flex flex-col items-center md:items-end gap-1">
+            <p className="text-3xl text-sky-800/30 font-bold font-amiri mb-2 select-none">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+            <p className="text-sm font-medium text-sky-100/80">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara.</p>
+            <p className="text-[11px] text-sky-400/40 italic tracking-wide">Diuruskan oleh Alpha Growth Consultancy (202503208073 / JM1028402-H)</p>
           </div>
         </div>
       </footer>
