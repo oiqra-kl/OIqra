@@ -466,9 +466,9 @@ export default function Home() {
               
               <div className="flex items-center justify-center gap-3 mb-2">
                 <p className="text-slate-400 font-bold text-2xl line-through decoration-slate-300">RM50</p>
-                <div className="flex items-baseline text-slate-900">
+                <div className="flex items-baseline text-sky-500">
                   <span className="text-2xl sm:text-3xl font-bold">RM</span>
-                  <span className="text-6xl sm:text-7xl font-display font-extrabold tracking-tight">30</span>
+                  <span className="text-6xl sm:text-7xl font-sans font-bold">30</span>
                 </div>
               </div>
               <p className="text-slate-500 font-medium mb-8">per minggu (RM120/bulan)</p>
