@@ -210,7 +210,7 @@ export default function Home() {
 
               <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold text-white leading-[1.08] mb-6 tracking-tight">
                 Anak Anda Lancar <br className="hidden sm:block" />Mengaji Dalam{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-400 to-amber-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-200 via-sky-400 to-amber-300">
                   3–6 Bulan
                 </span>
               </motion.h1>
