@@ -349,7 +349,7 @@ export default function Home() {
                 Lahirkan Generasi <br className="hidden md:block" />Celik <span className="text-gradient">Al-Quran</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
-                Di bawah naungan <strong>Alpha Growth Consultancy</strong>, <strong>O-Iqra'</strong> ditubuhkan dengan misi yang jelas: menjadikan pendidikan Iqra dan Al-Quran premium mampu diakses oleh setiap kanak-kanak di Malaysia melalui teknologi digital. Disokong oleh lebih 25 tahun pengalaman dalam pengurusan korporat dan latihan.
+                Di bawah naungan <strong>Alpha Growth Consultancy (202503208073 (JM1028402-H))</strong>, <strong>O-Iqra'</strong> ditubuhkan dengan misi yang jelas: menjadikan pendidikan Iqra dan Al-Quran premium mampu diakses oleh setiap kanak-kanak di Malaysia melalui teknologi digital. Disokong oleh lebih 25 tahun pengalaman dalam pengurusan korporat dan latihan.
               </motion.p>
 
               <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -756,7 +756,7 @@ export default function Home() {
           </div>
           <div className="text-center md:text-right">
             <p className="text-2xl text-sky-800/60 mb-2 font-bold font-amiri">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-            <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara.</p>
+            <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara. <br className="md:hidden" /> Diuruskan oleh Alpha Growth Consultancy (202503208073 (JM1028402-H))</p>
           </div>
         </div>
       </footer>

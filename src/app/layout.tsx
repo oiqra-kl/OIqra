@@ -47,7 +47,7 @@ const jsonLd = {
       description: "Kelas Iqra dan Al-Quran 100% online secara talaqqi bersama guru Hafiz bersanad untuk pelajar umur 7-17 tahun.",
       provider: {
         "@type": "Organization",
-        name: "O-Iqra' (Alpha Growth Consultancy)",
+        name: "O-Iqra' (Alpha Growth Consultancy - 202503208073 (JM1028402-H))",
       },
       offers: {
         "@type": "Offer",
