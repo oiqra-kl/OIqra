@@ -56,7 +56,7 @@ const faqs = [
   { q: "Kawasan mana yang diliputi oleh O-Iqra'?", a: "Oleh kerana O-Iqra' beroperasi 100% secara dalam talian, kami menerima pelajar dari SELURUH Malaysia tanpa mengira lokasi geografi." },
 ];
 
-const waLink = "https://wa.me/60174122339?text=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendaftar%20anak%20saya%20dalam%20kelas%20online%20O-Iqra'.";
+const waLink = "https://wa.me/601171298360?text=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendaftar%20anak%20saya%20dalam%20kelas%20online%20O-Iqra'.";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,7 +98,7 @@ export default function Home() {
     // Auto-redirect to WhatsApp immediately (zero friction)
     const text = `Assalamualaikum O-Iqra',\n\nSaya ingin mendaftar anak saya untuk kelas mengaji. Berikut adalah butiran:\n\n*Nama Ibu/Bapa*: ${formData.parentName}\n*Nama Anak*: ${formData.childName}\n*Umur Anak*: ${formData.childAge} tahun\n*Tahap/Level*: ${formData.currentLevel}\n*No Telefon*: ${formData.phone}\n\nMohon maklum balas untuk langkah seterusnya. Terima Kasih!`;
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/60174122339?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/601171298360?text=${encodedText}`, '_blank');
     
     setIsSubmitting(false);
     setFormSubmitted(true);
@@ -205,7 +205,7 @@ export default function Home() {
             <motion.div initial="hidden" animate="visible" variants={stagger}>
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/40 bg-amber-400/10 backdrop-blur-md mb-8">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                <span className="text-sm font-semibold text-amber-200">Batch April — Tinggal 12 Slot Sahaja</span>
+                <span className="text-sm font-semibold text-amber-200 font-amiri tracking-wider uppercase">Batch April — Tinggal 12 Slot Sahaja</span>
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold text-white leading-[1.08] mb-6 tracking-tight">
@@ -344,7 +344,7 @@ export default function Home() {
 
             {/* Right: Text */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="order-1 lg:order-2">
-              <motion.span variants={fadeUp} className="text-sky-600 font-bold tracking-wider uppercase text-[10px] sm:text-sm mb-2 block">Direka Untuk Generasi Ini</motion.span>
+              <motion.span variants={fadeUp} className="text-sky-600 font-bold tracking-widest uppercase text-[10px] sm:text-sm mb-2 block font-amiri">Direka Untuk Generasi Ini</motion.span>
               <motion.h2 variants={fadeUp} className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4 leading-tight">
                 Lahirkan Generasi <br className="hidden md:block" />Celik <span className="text-gradient">Al-Quran</span>
               </motion.h2>
@@ -425,7 +425,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid sm:grid-cols-2 gap-6">
             {[
               { day: "Isnin – Khamis", sessions: ["Sesi Pagi: 9:00 – 10:00", "Sesi Petang: 15:00 – 16:00", "Sesi Malam: 20:00 – 21:00"], popular: false },
-              { day: "Sabtu – Ahad", sessions: ["Sesi Pagi: 9:00 – 10:00", "Sesi Petang: 14:00 – 15:00", "Sesi Malam: 20:00 – 21:00"], popular: true },
+              { day: "Sabtu – Ahad", sessions: ["Sesi Pagi: 9:00 – 10:00", "Sesi Petang: 14:00 – 15:00", "Sesi Malam: 20:30 – 21:30"], popular: true },
             ].map((slot, idx) => (
               <motion.div key={idx} variants={fadeUp} className={`relative p-8 rounded-3xl border-2 ${slot.popular ? "border-sky-400 bg-white shadow-xl shadow-sky-500/10" : "border-slate-200 bg-white"}`}>
                 {slot.popular && (
@@ -613,20 +613,30 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
-              { name: "Ustaz Amirul", role: "Ketua Guru & Pakar Tajwid", credentials: ["Hafiz Al-Quran 30 Juzuk", "Pakar Tajwid & Makhraj Huruf", "5+ Tahun Pengalaman Mengajar"], initial: "A" },
-              { name: "Pasukan O-Iqra'", role: "Tenaga Pengajar Berdedikasi", credentials: ["Semua Guru Hafiz Bersanad", "Terlatih Dalam Pengajaran Digital", "Di bawah Alpha Growth Consultancy"], initial: "O" },
+              { 
+                name: "Ustazah Nur Humairah", 
+                role: "Guru Al-Quran", 
+                credentials: ["Sijil Khatam Al-Quran", "Anugerah Mutqin", "Penyertaan Musabaqah Hafazan"], 
+                image: "/assets/Humairah.png" 
+              },
+              { 
+                name: "Ustaz Muhammad Zulhair", 
+                role: "Guru Al-Quran", 
+                credentials: ["Sijil Hafazan Al-Quran (Jayyid)", "Khatam Hafazan 30 Juzuk"], 
+                image: "/assets/Zulhair.png" 
+              },
             ].map((teacher, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.15 }} className="relative bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center">
-                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center font-display font-bold text-3xl text-white mb-6 shadow-lg shadow-sky-500/20">
-                  {teacher.initial}
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.15 }} className="relative bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center flex flex-col items-center">
+                <div className="w-24 h-24 mx-auto rounded-full ring-4 ring-sky-100 mb-6 shadow-lg overflow-hidden relative bg-white">
+                  <Image src={teacher.image} alt={teacher.name} fill className="object-cover" />
                 </div>
                 <h3 className="text-xl font-display font-bold text-slate-900 mb-1">{teacher.name}</h3>
                 <p className="text-sm text-sky-600 font-semibold mb-5">{teacher.role}</p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 w-full">
                   {teacher.credentials.map((cred) => (
-                    <li key={cred} className="flex items-center gap-2 text-sm text-slate-600 justify-center">
-                      <ShieldCheck size={16} className="text-emerald-500 flex-shrink-0" />
-                      {cred}
+                    <li key={cred} className="flex items-start gap-2 text-sm text-slate-600 text-left">
+                      <ShieldCheck size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>{cred}</span>
                     </li>
                   ))}
                 </ul>
@@ -745,7 +755,7 @@ export default function Home() {
             <p className="text-sm">Pendidikan Al-Quran Premium Rangkaian Digital.</p>
           </div>
           <div className="text-center md:text-right">
-            <p className="text-2xl text-sky-800/60 mb-2 font-bold" style={{ fontFamily: "'Amiri', serif" }}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+            <p className="text-2xl text-sky-800/60 mb-2 font-bold font-amiri">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
             <p className="text-sm">© {new Date().getFullYear()} O-Iqra' Pendidikan. Hak cipta terpelihara.</p>
           </div>
         </div>
