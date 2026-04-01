@@ -335,8 +335,8 @@ export default function Home() {
                     <Award size={24} className="text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900 text-sm">Hafiz Al-Quran 30 Juzuk</p>
-                    <p className="text-xs text-slate-500">Pemegang Ijazah Sanad • Pakar Tajwid & Makhraj</p>
+                    <p className="font-bold text-slate-900 text-sm">Pelapis Generasi Al-Quran</p>
+                    <p className="text-xs text-slate-500">Dalam perjalanan menjadi Al-Hafiz</p>
                   </div>
                 </div>
               </div>
