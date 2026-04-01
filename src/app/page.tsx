@@ -335,8 +335,8 @@ export default function Home() {
                     <Award size={24} className="text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900 text-sm">Yakin Membaca, Yakin Masa Depan</p>
-                    <p className="text-xs text-slate-500">Didikan premium untuk anak anda</p>
+                    <p className="font-bold text-slate-900 text-sm">Pelajar Tahfiz Al-Quran</p>
+                    <p className="text-xs text-slate-500">Fokus Tajwid & Makhraj</p>
                   </div>
                 </div>
               </div>
