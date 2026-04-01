@@ -269,7 +269,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
             {[
               { label: "Pelajar Berdaftar", value: "500+", icon: <Users size={24} className="text-sky-500" /> },
-              { label: "Guru Bertauliah", value: "100%", icon: <GraduationCap size={24} className="text-sky-500" /> },
+              { label: "Ustaz & Ustazah Bertauliah", value: "100%", icon: <GraduationCap size={24} className="text-sky-500" /> },
               { label: "Rating Ibu Bapa", value: "5/5", icon: <Star size={24} className="text-amber-400" fill="currentColor" /> },
               { label: "Kepuasan Pelajar", value: "100%", icon: <Award size={24} className="text-sky-500" /> },
             ].map((stat, idx) => (
