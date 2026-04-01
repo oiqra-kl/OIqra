@@ -611,7 +611,7 @@ export default function Home() {
             <p className="text-slate-500 text-base sm:text-lg">Setiap guru O-Iqra' adalah Hafiz Al-Quran yang berdedikasi dan terlatih dalam pengajaran digital.</p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               { 
                 name: "Ustazah Nur Humairah", 
@@ -642,6 +642,23 @@ export default function Home() {
                 </ul>
               </motion.div>
             ))}
+
+            {/* Team Card */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="relative bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-sky-400 to-sky-600 mb-6 shadow-lg flex items-center justify-center ring-4 ring-sky-100">
+                <span className="text-white font-display font-bold text-4xl">O</span>
+              </div>
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-1">Pasukan O-Iqra&apos;</h3>
+              <p className="text-sm text-sky-600 font-semibold mb-5">Tenaga Pengajar Berdedikasi</p>
+              <ul className="space-y-2 w-full">
+                {["Semua Guru Hafiz Bersanad", "Terlatih Dalam Pengajaran Digital", "Di bawah Alpha Growth Consultancy"].map((cred) => (
+                  <li key={cred} className="flex items-start gap-2 text-sm text-slate-600 text-left">
+                    <ShieldCheck size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                    <span>{cred}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -753,6 +770,7 @@ export default function Home() {
               </span>
             </div>
             <p className="text-sm">Pendidikan Al-Quran Premium Rangkaian Digital.</p>
+            <a href="mailto:admin.oiqra@gmail.com" className="text-sm text-sky-400 hover:text-sky-300 transition-colors">admin.oiqra@gmail.com</a>
           </div>
           <div className="text-center md:text-right flex flex-col items-center md:items-end gap-1">
             <p className="text-3xl text-sky-200/60 font-bold font-amiri mb-2 select-none">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
