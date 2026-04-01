@@ -1,72 +1,52 @@
-# 📖 OIqra: Pendidikan Al-Quran Premium 100% Online
+# 📖 O-Iqra': Premium Digital Quran Education
 
-![OIqra Banner](/assets/hero-student.png)
-
-> **"Pendidikan Al-Quran Premium Rangkaian Digital — Di mana tradisi bertemu teknologi."**
-
-OIqra adalah platform pembelajaran Al-Quran dan Iqra bertaraf premium yang menggunakan kaedah **Talaqqi Musyafahah** (bersemuka digital) secara 100% atas talian. Direka khusus untuk pelajar berumur 7-17 tahun, sistem ini menggabungkan kepakaran Guru Hafiz Bersanad dengan antaramuka web yang moden dan responsif.
-
----
-
-## 🏗️ Projek Arsitektur & Teknologi
-
-Laman web ini dibangunkan menggunakan teknologi web terkini untuk memastikan kelajuan, keselamatan, dan pengalaman pengguna (UX) yang luar biasa, menjustifikasikan nilai tinggi bagi setiap sesi pembelajaran.
-
-### 🛠️ Core Tech Stack
-
-- **Framework:** [Next.js 15 (App Router)](https://nextjs.org/) - Untuk SEO yang mantap dan prestasi *server-side rendering* yang pantas.
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) - Sistem reka bentuk utiliti yang memudahkan kawalan visual yang tepat.
-- **Animations:** [Framer Motion](https://www.framer.com/motion/) - Digunakan untuk animasi *scroll-triggered* dan transisi yang halus.
-- **Icons:** [Lucide-React](https://lucide.dev/) - Set ikon SVG yang tajam dan konsisten.
-- **Runtime/Package Manager:** [Bun](https://bun.sh/) - Untuk pemasangan dependensi dan masa pembangunan yang paling pantas.
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
 
 ---
 
-## 🗺️ User Journey (Perjalanan Pengguna)
+**"Lahirkan Generasi Celik Al-Quran — Di mana tradisi bertemu inovasi digital."**
 
-Sistem ini direka untuk menukarkan pengunjung kepada pelajar berdaftar dengan geseran (friction) minimum.
-
-```mermaid
-graph TD
-    A[Pengunjung Masuk] --> B{Melihat UI Premium}
-    B --> C[Faham Cara Bermula]
-    B --> D[Lihat Testimonial & FAQ]
-    C --> E[Tekan Floating WhatsApp CTA]
-    D --> E
-    E --> F[Sesi Penilaian Percuma bersama Guru]
-    F --> G[Pilih Jadual Sesi]
-    G --> H[Pendaftaran & Mula Belajar]
-    
-    subgraph "Online Platform (Next.js)"
-    A
-    B
-    C
-    D
-    end
-    
-    subgraph "Conversion (External)"
-    E
-    F
-    G
-    H
-    end
-```
+O-Iqra' adalah platform pembelajaran Al-Quran dan Iqra bertaraf premium di bawah naungan **Alpha Growth Consultancy**. Menggunakan kaedah **Talaqqi Musyafahah** (bersemuka digital) secara 100% atas talian. Direka khusus untuk kanak-kanak dan remaja, sistem ini menggabungkan kepakaran Ustaz & Ustazah Bertauliah dengan antaramuka web yang moden, responsif, dan menumpukan kepada konversi pendaftaran pelanggan.
 
 ---
 
-## ✨ Ciri-Ciri Utama Sistem
+## 🌟 Rekod Prestasi (Track Record)
 
-### 1. **Premium Aesthetic Overhaul**
-- **Soft Blue Design System:** Menggunakan palet biru langit (`sky-500`) dan emas (`amber-400`) untuk membina suasana ketenangan dan kualiti.
-- **Glassmorphism Navigation:** Bar navigasi yang lutsinar dan berubah menjadi kesan kaca kabur (*blurred glass*) apabila pengguna skrol ke bawah.
+O-Iqra' dibina berlandaskan kepercayaan dan kualiti:
+- 👥 **500+ Pelajar Berdaftar**
+- 🎓 **100% Ustaz & Ustazah Bertauliah**
+- ⭐ **5/5 Rating Ibu Bapa**
+- 💯 **100% Kepuasan Pelajar**
 
-### 2. **Animated Interactive Sections**
-- **Smooth Scroll Transitions:** Setiap elemen (kad, teks, imej) muncul dengan kesan *fade-up* menggunakan Framer Motion.
-- **Interactive FAQ:** Akordion soalan lazim yang membantu menjawab keraguan ibubapa secara langsung di laman web.
+---
 
-### 3. **Conversion Focused UX**
-- **Floating WhatsApp Button:** Butang WhatsApp dengan kesan denyutan (*pulse animation*) yang sentiasa mudah dicapai di sudut bawah skrin.
-- **Mobile First Responsive:** Dioptimumkan sepenuhnya untuk telefon bimbit, memandangkan kebanyakan ibubapa mengakses maklumat melalui peranti mudah alih.
+## ✨ Ciri-Ciri Utama Sistem (Key Features)
+
+### 1. Zero-Friction Registration Flow (Borang Pintar)
+- **Google Sheets Integration:** Maklumat pendaftaran pelajar disematkan terus secara *silent/background* ke dalam pangkalan data Google Sheets menggunakan Google Apps Script Web App.
+- **Direct WhatsApp Redirect:** Selepas data disimpan, pengguna terus dibawa pautan web WhatsApp rasmi berserta mesej pra-jana (*auto-generated text*). Ini memastikan pendaftaran menjadi luar biasa pantas tanpa halangan.
+
+### 2. Premium Aesthetic & UI/UX
+- **Modern Typography:** Menggabungkan font geometrik yang tajam (`font-display`) berserta font serif-arab (`Amiri`) untuk menonjolkan nilai eksklusif produk.
+- **Micro-Animations:** Transisi *fade-up*, *scale-in*, dan *pulse* menggunakan **Framer Motion** untuk memastikan laman web terasa hidup.
+- **Glassmorphism Design:** Bar navigasi dan komponen latar yang lutsinar dengan kesan *blur* mengikut standard reka profil UI terkini.
+
+### 3. Dioptimumkan Penuh Untuk Mobile
+- Responsif penuh melalui peranti mudah alih. Susun atur diubah secara dinamik kepada aliran *stacking* menegak bagi memastikan setiap teks, imej, dan butang kekal intuitif (*thumb-friendly*).
+
+---
+
+## 🛠️ Tech Stack & Arsitektur
+
+Laman web ini siap dibina di atas infrastruktur web moden untuk memastikan kelajuan milisaat, keselamatan asas, dan pengalaman UI lancar.
+
+- **Framework:** [Next.js 15 (App Router)](https://nextjs.org/) - Prestasi cemerlang terbina untuk SEO.
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) - Rangka sistem utiliti gaya canggih.
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) - Pustaka animasi tahap antarabangsa bergred produksi.
+- **Icons:** [Lucide-React](https://lucide.dev/) - Ikon tajam dan elegan yang direndar pantas.
 
 ---
 
@@ -75,21 +55,21 @@ graph TD
 ```bash
 OIqra/
 ├── public/                # Aset statik (Imej, Logo, Background)
-│   └── assets/            # Gambar Model Founder & Pelajar
+│   └── assets/            # Model Utama & Ustaz/Ustazah Profiles
 ├── src/
-│   └── app/               # Next.js App Router (Logic & Routing)
+│   └── app/               # Root Next.js App Router
 │       ├── layout.tsx     # Tetapan Font & Metadata Global
-│       ├── globals.css    # Tailwind Utility Mixins & Theme
-│       └── page.tsx       # Komponen Utama (Single Page App)
-├── README.md              # Dokumentasi ini
-└── next.config.ts         # Konfigurasi Next.js
+│       ├── globals.css    # Tailwind Utility & Custom CSS
+│       └── page.tsx       # Komponen Utama Laman Berkembar (SPA)
+├── README.md              # Dokumentasi Intipati
+└── next.config.ts         # Konfigurasi Teras Next.js
 ```
 
 ---
 
-## 🚀 Panduan Pembangunan (Development)
+## 🚀 Panduan Pembangunan (Quick Start)
 
-Pastikan anda mempunyai **Bun** terpasang di sistem anda.
+Disarankan menggunakan pakej [Bun](https://bun.sh/) atas kapasiti kelajuannya berbanding Node.js biasa.
 
 1. **Klon Repositori:**
    ```bash
@@ -101,23 +81,17 @@ Pastikan anda mempunyai **Bun** terpasang di sistem anda.
    bun install
    ```
 
-3. **Jalankan Seder Peranti (Local Dev):**
+3. **Jalankan Pelayan Pembangunan (Local Server):**
    ```bash
    bun dev
    ```
-   Buka [http://localhost:3000](http://localhost:3000) untuk melihat laman web.
+   Buka pautan web [http://localhost:3000](http://localhost:3000) pada pelayar anda.
 
 ---
 
-## ☁️ Deployment (Pelancaran)
+## 📧 Hubungi Kami
 
-Projek ini telah sedia untuk dikerahkan ke **Vercel** dengan sekali klik. Kerana ia berasaskan Next.js, Vercel akan mengesan semua konfigurasi secara automatik dan menyediakan hosting yang selamat (SSL) dan pantas secara percuma untuk skala permulaan.
+- **Emel Pintar:** [admin.oiqra@gmail.com](mailto:admin.oiqra@gmail.com)
+- **Pengurusan Rasmi:** Sektor Pendidikan Digital, **Alpha Growth Consultancy** (202503208073 / JM1028402-H)
 
----
-
-## 📜 Kredit & Pemilikan
-
-- **Pengasas:** Ustaz Naufal & Ustaz Amirul Amri.
-- **Pembangunan Web:** Dibangunkan dengan penuh perhatian terhadap perincian untuk kualiti premium.
-
-> *"Membangunkan generasi mahir tajwid dari keselesaan rumah anda."*
+> *"Yakin Membaca, Yakin Masa Depan. Didikan premium untuk anak anda."*
