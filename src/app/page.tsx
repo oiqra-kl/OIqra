@@ -806,11 +806,9 @@ export default function Home() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1.5, type: "spring", stiffness: 200 }}
-        href={waLink}
-        target="_blank"
-        rel="noreferrer"
+        href="#hubungi"
         className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#1ebd5a] text-white rounded-full flex items-center justify-center shadow-xl transition-transform transform hover:scale-110 wa-pulse"
-        aria-label="Chat di WhatsApp"
+        aria-label="Pendaftaran"
       >
         <MessageCircle size={28} />
       </motion.a>
