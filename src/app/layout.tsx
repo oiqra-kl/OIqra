@@ -18,9 +18,6 @@ export const metadata: Metadata = {
   title: "O-Iqra' — Anak Anda Lancar Mengaji Dalam 3–6 Bulan | Kelas Online #1",
   description: "Kelas Iqra & Al-Quran 100% online secara talaqqi bersama guru Hafiz bersanad. Kumpulan kecil (5-10 pelajar), jadual fleksibel, dari RM30/minggu. Daftar sekarang!",
   keywords: ["kelas iqra online", "mengaji online", "talaqqi online", "tahfiz", "malaysia", "kelas quran online", "belajar mengaji", "guru hafiz"],
-  icons: {
-    icon: "/assets/logo-icon.png",
-  },
   openGraph: {
     type: "website",
     locale: "ms_MY",
